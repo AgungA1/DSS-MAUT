@@ -54,9 +54,9 @@
 				<div class="form-group col-md-6">
 					<label class="font-weight-bold">Departemen</label>
 					<select name="departemen" class="form-control" required>
-						<option value="Marketing" <?php if($alternatif->departemen == "Marketing"){ echo 'selected'; } ?>>Marketing</option>
-						<option value="Operasional" <?php if($alternatif->departemen == "Operasional"){ echo 'selected'; } ?>>Operasional</option>						
-						<option value="Finansial" <?php if($alternatif->departemen == "Finansial"){ echo 'selected'; } ?>>Finansial</option>		
+						<option value="Kepala Sekolah" <?php if($alternatif->departemen == "Kepala Sekolah"){ echo 'selected'; } ?>>Kepala Sekolah</option>
+						<option value="Guru" <?php if($alternatif->departemen == "Guru"){ echo 'selected'; } ?>>Guru</option>						
+						<option value="Staff" <?php if($alternatif->departemen == "Staff"){ echo 'selected'; } ?>>Staff</option>		
 					</select>
 				</div>
 				

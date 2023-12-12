@@ -100,7 +100,13 @@
 						<?php 
 							$data_pencocokan = $this->Perhitungan_model->data_nilai($keys->id_alternatif,$key->id_kriteria);
 							$min_max=$this->Perhitungan_model->get_max_min($key->id_kriteria);
-							$hasil= @(round(($data_pencocokan['nilai']-$min_max['min'])/($min_max['max']-$min_max['min']),4));
+							if ($key->jenis_kriteria == 'benefit') {
+								// Rumus normalisasi untuk kriteria benefit
+								$hasil = @(round(($data_pencocokan['nilai'] - $min_max['min']) / ($min_max['max'] - $min_max['min']), 4));
+							} elseif ($key->jenis_kriteria == 'cost') {
+								// Rumus normalisasi untuk kriteria cost
+								$hasil = @(round(1 + ($min_max['min'] - $data_pencocokan['nilai']) / ($min_max['max'] - $min_max['min']), 4));
+							}
 							echo $hasil;
 						?>
 						</td>
@@ -179,8 +185,14 @@
 						foreach ($kriteria as $key):
 							$data_pencocokan = $this->Perhitungan_model->data_nilai($keys->id_alternatif,$key->id_kriteria);
 							$min_max=$this->Perhitungan_model->get_max_min($key->id_kriteria);
-							$hasil_normalisasi= @(round(($data_pencocokan['nilai']-$min_max['min'])/($min_max['max']-$min_max['min']),4));
 							$bobot = $key->bobot;
+							if ($key->jenis_kriteria == 'benefit') {
+								// Rumus normalisasi untuk kriteria benefit
+								$hasil_normalisasi = @(round(($data_pencocokan['nilai'] - $min_max['min']) / ($min_max['max'] - $min_max['min']), 4));
+							} elseif ($key->jenis_kriteria == 'cost') {
+								// Rumus normalisasi untuk kriteria cost
+								$hasil_normalisasi = @(round(1 + ($min_max['min'] - $data_pencocokan['nilai']) / ($min_max['max'] - $min_max['min']), 4));
+							}
 							$nilai_total += $bobot*$hasil_normalisasi;
 							
 							echo "(".$bobot."x".$hasil_normalisasi.") ";

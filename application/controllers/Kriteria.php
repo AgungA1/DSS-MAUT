@@ -41,7 +41,8 @@
                 $data = [
                     'keterangan' => $this->input->post('keterangan'),
                     'kode_kriteria' => $this->input->post('kode_kriteria'),
-                    'bobot' => $this->input->post('bobot')
+                    'bobot' => $this->input->post('bobot'),
+                    'jenis_kriteria' => $this->input->post('jenis_kriteria')
                 ];
                 
                 $this->form_validation->set_rules('keterangan', 'Keterangan', 'required');
@@ -76,7 +77,8 @@
             $data = array(
                 'keterangan' => $this->input->post('keterangan'),
                 'kode_kriteria' => $this->input->post('kode_kriteria'),
-                'bobot' => $this->input->post('bobot')
+                'bobot' => $this->input->post('bobot'),
+                'jenis_kriteria' => $this->input->post('jenis_kriteria')
             );
 
             $this->Kriteria_model->update($id_kriteria, $data);

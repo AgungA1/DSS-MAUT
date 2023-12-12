@@ -23,6 +23,7 @@
 						<th>Kode Kriteria</th>
 						<th>Nama Kriteria</th>
 						<th>Bobot</th>
+						<th>Jenis Kriteria</th>
 						<th width="15%">Aksi</th>
 					</tr>
 				</thead>
@@ -36,6 +37,7 @@
 						<td><?php echo $value->kode_kriteria ?></td>
 						<td><?php echo $value->keterangan ?></td>
 						<td><?php echo $value->bobot ?></td>
+						<td><?php echo $value->jenis_kriteria ?></td>
 						<td>
 							<div class="btn-group" role="group">
 								<a data-toggle="tooltip" data-placement="bottom" title="Edit Data" href="<?=base_url('Kriteria/edit/'.$value->id_kriteria)?>" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>

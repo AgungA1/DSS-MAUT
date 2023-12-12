@@ -31,6 +31,13 @@
 					<label class="font-weight-bold">Bobot Kriteria</label>
 					<input autocomplete="off" type="number" name="bobot" step="0.0001" value="<?php echo $kriteria->bobot ?>" required class="form-control"/>
 				</div>
+				<div class="form-group col-md-6">
+				<label for="jenis_kriteria">Jenis Kriteria:</label>
+					<select name="jenis_kriteria" class="form-control">
+						<option value="benefit">Benefit</option>
+						<option value="cost">Cost</option>
+					</select>
+				</div>
 			</div>
 		</div>
 		<div class="card-footer text-right">

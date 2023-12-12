@@ -43,7 +43,7 @@
 				</tr>
 				
 				<tr>
-					<th>Departemen</th>
+					<th>Jabatan</th>
 					<td><?php echo $alternatif->departemen ?></td>
 				</tr>
 				

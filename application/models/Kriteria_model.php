@@ -33,7 +33,8 @@
             $ubah = array(
                 'keterangan' => $data['keterangan'],
                 'kode_kriteria' => $data['kode_kriteria'],
-                'bobot'  => $data['bobot']
+                'bobot'  => $data['bobot'],
+                'jenis_kriteria' => $data['jenis_kriteria']
             );
 
             $this->db->where('id_kriteria', $id_kriteria);

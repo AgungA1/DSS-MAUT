@@ -55,9 +55,9 @@
 					<label class="font-weight-bold">Departemen</label>
 					<select name="departemen" class="form-control" required>
 						<option value="">--Pilih Jurusan--</option>
-						<option value="Marketing">Marketing</option>					
-						<option value="Operasional">Operasional</option>					
-						<option value="Finansial">Finansial</option>					
+						<option value="Kepala Sekolah">Kepala Sekolah</option>					
+						<option value="Guru">Guru</option>					
+						<option value="Staff">Staff</option>					
 					</select>
 				</div>
 				

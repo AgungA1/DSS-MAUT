@@ -22,8 +22,8 @@
 	<tr>
 		<td align="center">
 			<span style="line-height: 1.7; font-weight: bold;">
-		POLITEKNIK NEGERI MALANG
-		<br>MALANG, INDONESIA
+				POLITEKNIK NEGERI MALANG
+				<br>MALANG, INDONESIA
 			</span>
 		</td>
 	</tr>
@@ -33,6 +33,13 @@
 <p align="center">
 	LAPORAN DATA KARYAWAN <br>
 </p>
+
+<?php
+// Mengurutkan hasil berdasarkan nilai preferensi
+usort($hasil, function($a, $b) {
+    return ($b->nilai_benefit + $b->nilai_cost) - ($a->nilai_benefit + $a->nilai_cost);
+});
+?>
 
 <table border="1" width="100%">
 	<thead>
@@ -54,23 +61,22 @@
 				$nim_alternatif = $this->Perhitungan_model->get_hasil_alternatif($keys->id_alternatif);
 				echo $nim_alternatif['nik'];
 				?>
-
+			</td>
 			<td align="left" style="padding-left: 5px;">
 				<?php
 				$nama_alternatif = $this->Perhitungan_model->get_hasil_alternatif($keys->id_alternatif);
 				echo $nama_alternatif['nama'];
 				?>
-
-		<td style="padding-left: 5px;">
+			</td>
+			<td style="padding-left: 5px;">
 				<?php
 				$jurusan_alternatif = $this->Perhitungan_model->get_hasil_alternatif($keys->id_alternatif);
 				echo $jurusan_alternatif['departemen'];
 				?>
-
-		
-			
 			</td>
-			<td><?= $keys->nilai ?></td>
+			<td>
+				<?= $keys->nilai_benefit + $keys->nilai_cost; ?>
+			</td>
 			<td><?= $no; ?></td>
 		</tr>
 		<?php

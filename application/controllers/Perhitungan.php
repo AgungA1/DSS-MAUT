@@ -36,29 +36,48 @@ class Perhitungan extends CI_Controller
     {
         $kriteria = $this->Perhitungan_model->get_kriteria();
         $alternatif = $this->Perhitungan_model->get_alternatif();
-
+    
         $this->Perhitungan_model->hapus_hasil();
+    
         foreach ($alternatif as $keys) {
-            $nilai_total = 0;
+            $nilai_total_benefit = 0;
+            $nilai_total_cost = 0;
+    
             foreach ($kriteria as $key) {
                 $data_pencocokan = $this->Perhitungan_model->data_nilai($keys->id_alternatif, $key->id_kriteria);
                 $min_max = $this->Perhitungan_model->get_max_min($key->id_kriteria);
-                $hasil_normalisasi = @(round(($data_pencocokan['nilai'] - $min_max['min']) / ($min_max['max'] - $min_max['min']), 4));
+    
                 $bobot = $key->bobot;
-                $nilai_total += $bobot * $hasil_normalisasi;
+    
+                if ($key->jenis_kriteria == 'benefit') {
+                    // Rumus normalisasi untuk kriteria benefit
+                    $hasil_normalisasi_benefit = @(round(($data_pencocokan['nilai'] - $min_max['min']) / ($min_max['max'] - $min_max['min']), 4));
+                    $nilai_total_benefit += $bobot * $hasil_normalisasi_benefit;
+                } elseif ($key->jenis_kriteria == 'cost') {
+                    // Rumus normalisasi untuk kriteria cost
+                    $hasil_normalisasi_cost = @(round(1+($min_max['min'] - $data_pencocokan['nilai']) / ($min_max['max'] - $min_max['min']), 4));
+                    $nilai_total_cost += $bobot * $hasil_normalisasi_cost;
+                }
+                
             }
+    
+            // Gabungkan hasil untuk benefit dan cost
             $hasil_akhir = [
                 'id_alternatif' => $keys->id_alternatif,
-                'nilai' => $nilai_total
+                'nilai_benefit' => $nilai_total_benefit,
+                'nilai_cost' => $nilai_total_cost,
+                'nilai' => $nilai_total_benefit + $nilai_total_cost,
             ];
+    
             $result = $this->Perhitungan_model->insert_nilai_hasil($hasil_akhir);
         }
-
+    
         $data = [
             'page' => "Hasil",
             'hasil' => $this->Perhitungan_model->get_hasil()
         ];
-
+    
         $this->load->view('Perhitungan/hasil', $data);
     }
+    
 }

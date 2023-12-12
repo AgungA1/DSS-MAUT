@@ -23,7 +23,7 @@
 						<th>Status</th>
 						<th>Tahun</th>
 						<th>Nama Alternatif</th>
-						<th>Departemen</th>
+						<th>Jabatan</th>
 						<th width="15%">Aksi</th>
 					</tr>
 				</thead>
