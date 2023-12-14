@@ -55,7 +55,7 @@ class Perhitungan extends CI_Controller
                     $nilai_total_benefit += $bobot * $hasil_normalisasi_benefit;
                 } elseif ($key->jenis_kriteria == 'cost') {
                     // Rumus normalisasi untuk kriteria cost
-                    $hasil_normalisasi_cost = @(round(1+($min_max['min'] - $data_pencocokan['nilai']) / ($min_max['max'] - $min_max['min']), 4));
+                    $hasil_normalisasi_cost = @(round(1+(($min_max['min'] - $data_pencocokan['nilai']) / ($min_max['max'] - $min_max['min'])), 4));
                     $nilai_total_cost += $bobot * $hasil_normalisasi_cost;
                 }
                 

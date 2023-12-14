@@ -17,9 +17,9 @@
 			<table class="table table-bordered" width="100%" cellspacing="0">
 				<thead class="bg-primary text-white">
 					<tr align="center">
-						<th>Nik</th>
+						<th>NIK</th>
 						<th>Alternatif / Nama Karyawan</th>
-						<th>Departemen</th>
+						<th>Jabatan</th>
 						<th>Nilai Preferensi</th>
 						<th width="15%">Ranking</th>
 					</tr>

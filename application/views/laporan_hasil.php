@@ -44,9 +44,9 @@ usort($hasil, function($a, $b) {
 <table border="1" width="100%">
 	<thead>
 		<tr align="center">
-			<th>Nik</th>
+			<th>NIK</th>
 			<th>Alternatif / Nama Karyawan</th>
-			<th>Departemen</th>
+			<th>Jabatan</th>
 			<th>Nilai Preferensi</th>
 			<th width="15%">Ranking</th>
 		</tr>
